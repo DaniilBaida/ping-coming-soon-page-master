@@ -9,10 +9,14 @@ import { AiOutlineTwitter, AiFillInstagram } from "react-icons/ai/";
 function ComingSoon({ setIsSubmitted }) {
   const isValid = () => {
     const email = document.querySelector(".email-form");
+    const invalidEmail = document.querySelector(".invalid-email");
     if (email.value !== "") {
       if (email.checkValidity()) {
         setIsSubmitted(true);
       }
+    } else {
+      invalidEmail.innerHTML = "Please provide a valid email adress";
+      invalidEmail.classList.remove("sm:hidden");
     }
   };
 
@@ -36,7 +40,7 @@ function ComingSoon({ setIsSubmitted }) {
             id="email"
             placeholder="Your email adress.."
           />
-
+          <div className="invalid-email w-full text-center pt-2 text-xs sm:hidden md:hidden"></div>
           <button
             onClick={() => isValid()}
             className="button-form font-semibold text-gray-50 text-xs rounded-full px-6 py-3 shadow-xl md:w-72 mt-4  md:mt-8 md:text-sm "
@@ -45,6 +49,7 @@ function ComingSoon({ setIsSubmitted }) {
             Notify me
           </button>
         </div>
+
         <img
           className="dashboard mt-10 drop-shadow-lg"
           src={dashboard}

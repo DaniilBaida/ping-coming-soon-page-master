@@ -80,6 +80,10 @@ footer {
   color: var(--gray);
 }
 
+.invalid-email {
+  color: var(--light-red);
+}
+
 @media (min-width: 640px) {
   .wrapper {
     width: 640px;
